@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Weather App</title>
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+	 crossorigin="anonymous">
+	<style>
+		li:after{
+			font-family: "Font Awesome 5 Free";
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			line-height: 1.5;
+			font-weight: 900;
+			float: right;
+			font-size: 20px;
+		}
+		li:nth-child(1):after{
+			content: "\f491";
+			color: #fb891d;
+		}
+		li:nth-child(2):after{
+			content: "\f56b";
+			color: #20a215;
+		}
+		li:nth-child(3):after{
+			content: "\f0c2";
+			color: #2934ff;
+		}
+		li:nth-child(4):after{
+			content: "\f043";
+			color: #198fff;
+		}
+		@media screen and (max-width:768px){
+			.col-md-6{
+				height: 100vh;
+				border-radius: 0% !important;
+			}
+		}
+	</style>
+	
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto text-center bg-primary p-5 rounded">
+				<h1 id="w-location" class="text-white"></h1>
+				<h3 class="text-dark" id="w-desc"></h3>
+				<h3 id="w-string" class="text-white"></h3>
+				<img id="w-icon">
+				<ul id="w-details" class="list-group mt-3 font-weight-bold">
+					<li class="list-group-item" id="w-feels-like"></li>
+					<li class="list-group-item" id="w-wind"></li>
+					<li class="list-group-item" id="w-cloud"></li>
+					<li class="list-group-item" id="w-humidity"></li>
+				</ul>
+				<hr>
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#locModal">Change Location</button>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="locModal" tabindex="-1" role="dialog" aria-labelledby="locModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="locModalLabel">Choose Location</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="w-form">
+						<div class="form-group">
+							<label for="city">City</label>
+							<input type="text" id="city" class="form-control">
+						</div>												
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button id="w-change-btn" type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="storage.js"></script>
+	<script src="ui.js"></script>
+	<script src="weather.js"></script>
+	<script src="app.js"></script>	
+	<script src="bootstrap/jquery.min.js"></script>
+	<script src="bootstrap/bootstrap.min.js"></script>	
+	<script src="bootstrap/popper.min.js"></script>
+</body>
+
+</html>
